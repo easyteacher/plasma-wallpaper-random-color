@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "qydwhotmail@gmail.com",
+                "Name": "Fushan Wen"
+            }
+        ],
+        "Category": "",
+        "Description": "Random color wallpaper",
+        "Description[zh_CN]": "随机颜色壁纸",
+        "Description[zh_TW]": "隨機顏色桌面",
+        "Icon": "preferences-desktop-color",
+        "Id": "com.github.easyteacher.randomcolor",
+        "License": "GPLv3+",
+        "Name": "Random Color",
+        "Name[zh_CN]": "随机颜色",
+        "Name[zh_TW]": "隨機顏色",
+        "Website": "https://github.com/easyteacher/plasma-wallpaper-random-color"
+    },
+    "X-KDE-ParentApp": "org.kde.plasmashell",
+    "X-KDE-ServiceTypes": "Plasma/Wallpaper"
+}
