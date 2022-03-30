@@ -1,0 +1,21 @@
+[Desktop Entry]
+Name=Random Color
+Name[zh_CN]=随机颜色
+Name[zh_TW]=隨機顏色
+Comment=Random color wallpaper
+Comment[zh_CN]=随机颜色壁纸
+Comment[zh_TW]=隨機顏色桌面
+Icon=preferences-desktop-color
+
+Type=Service
+X-KDE-ServiceTypes=Plasma/Wallpaper
+X-KDE-ParentApp=org.kde.plasmashell
+
+X-KDE-PluginInfo-Author=Fushan Wen
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-Email=qydwhotmail@gmail.com
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-Name=com.github.easyteacher.randomcolor
+X-KDE-PluginInfo-License=GPLv3+
+X-KDE-PluginInfo-Version=1.0.0
+X-KDE-PluginInfo-Website=https://github.com/easyteacher/plasma-wallpaper-random-color
