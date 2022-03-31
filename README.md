@@ -15,8 +15,14 @@ A wallpaper plugin for KDE Plasma that periodically updates the desktop backgrou
 - Automatically select a color scheme based on Night Color active status
 - Copy HEX color code using the desktop context menu
 
-
 ## Installation
+
+### :star:KDE Store (Recommended)
+
+1. Right click the desktop, and click "Configure Desktop and Wallpaper...".
+2. When selecting wallpaper plugin, click "Get New Plugins...".
+3. Search for "Random Color" and install it.
+4. Choose "Random Color" in "Wallpaper type", change the settings and click "Apply" or "OK" to take effect.
 
 ### openSUSE
 
@@ -35,3 +41,27 @@ zypper addrepo https://download.opensuse.org/repositories/home:fusionfuture:plas
 zypper refresh
 zypper install plasma-wallpaper-random-color
 ```
+
+For openSUSE Leap 15.3
+
+```shell
+zypper addrepo https://download.opensuse.org/repositories/home:fusionfuture:plasma-wallpaper-random-color/15.3/home:fusionfuture:plasma-wallpaper-random-color.repo
+zypper refresh
+zypper install plasma-wallpaper-random-color
+```
+
+For openSUSE Leap 15.2
+
+```shell
+zypper addrepo https://download.opensuse.org/repositories/home:fusionfuture:plasma-wallpaper-random-color/openSUSE_Leap_15.2/home:fusionfuture:plasma-wallpaper-random-color.repo
+zypper refresh
+zypper install plasma-wallpaper-random-color
+```
+
+### Fedora/CentOS
+
+```shell
+dnf copr enable fusionfuture/plasma-wallpaper-random-color
+dnf install plasma-wallpaper-random-color
+```
+
