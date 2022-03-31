@@ -6,8 +6,8 @@
 
 
 Name:           plasma-wallpaper-random-color
-Version:        1.0.0
-Release:	    1%{?dist}
+Version:        1.1.0
+Release:        1%{?dist}
 Summary:        A wallpaper plugin for KDE Plasma
 License:        GPLv3
 Group:          System/GUI/KDE
