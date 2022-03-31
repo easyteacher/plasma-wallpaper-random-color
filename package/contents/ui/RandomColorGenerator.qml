@@ -59,15 +59,30 @@ Item {
 
         let newColor = generator.currentColor;
         let count = 0;
-        let r, g, b;
 
-        while (count < 10 && newColor === generator.currentColor) {
-            r = Math.floor(lower + Math.random() * upper);
-            g = Math.floor(lower + Math.random() * upper);
-            b = Math.floor(lower + Math.random() * upper);
+        if (generator.colorScheme < 3) {
+            let r, g, b;
 
-            newColor = Qt.rgba(r / 255, g / 255, b / 255);
-            count += 1;
+            while (count < 10 && newColor === generator.currentColor) {
+                r = Math.floor(lower + Math.random() * upper);
+                g = Math.floor(lower + Math.random() * upper);
+                b = Math.floor(lower + Math.random() * upper);
+
+                newColor = Qt.rgba(r / 255, g / 255, b / 255);
+                count += 1;
+            }
+        } else if (generator.colorScheme === 4) {
+            // Vivid
+            let h, s, v;
+
+            while (count < 10 && newColor === generator.currentColor) {
+                h = Math.floor(Math.random() * 361);
+                s = Math.floor(80 + Math.random() * 21);
+                v = Math.floor(80 + Math.random() * 21);
+
+                newColor = Qt.hsva(h / 360, s / 100, v / 100);
+                count += 1;
+            }
         }
 
         generator.currentColor = newColor;
