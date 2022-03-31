@@ -13,7 +13,6 @@ Item {
     id: generator
 
     property color currentColor: "black"
-    property color previousColor: currentColor
 
     /**
      * Current color scheme based on the configuration, the system theme or Night Color status.
@@ -58,19 +57,20 @@ Item {
             upper = 128;
         }
 
-        generator.previousColor = generator.currentColor;
-
+        let newColor = generator.currentColor;
         let count = 0;
         let r, g, b;
 
-        while (count < 10 && generator.previousColor === generator.currentColor) {
+        while (count < 10 && newColor === generator.currentColor) {
             r = Math.floor(lower + Math.random() * upper);
             g = Math.floor(lower + Math.random() * upper);
             b = Math.floor(lower + Math.random() * upper);
 
-            generator.currentColor = Qt.rgba(r / 255, g / 255, b / 255);
+            newColor = Qt.rgba(r / 255, g / 255, b / 255);
             count += 1;
         }
+
+        generator.currentColor = newColor;
     }
 
     function restart() {
