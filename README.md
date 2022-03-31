@@ -9,6 +9,13 @@ SPDX-License-Identifier: CC0-1.0
 A wallpaper plugin for KDE Plasma that periodically updates the desktop background color.
 
 
+## Features
+
+- Support Light/Dark/Follow Theme color scheme
+- Automatically select a color scheme based on Night Color active status
+- Copy HEX color code using the desktop context menu
+
+
 ## Installation
 
 ### openSUSE
