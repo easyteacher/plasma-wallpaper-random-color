@@ -7,7 +7,7 @@
 
   <group name="General">
     <entry name="ColorScheme" type="int">
-      <label>Preferred color scheme (light = 2/dark = 1/no preference = 0/system = 3)</label>
+      <label>Preferred color scheme (light = 2/dark = 1/no preference = 0/system = 3/vivid = 4)</label>
       <default>0</default>
     </entry>
     <entry name="FollowNightColor" type="bool">
