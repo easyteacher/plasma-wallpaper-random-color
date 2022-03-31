@@ -47,6 +47,10 @@ Kirigami.FormLayout {
                 'label': i18nc("@item:inlistbox", "Follow Theme"),
                 'value': 3
             },
+            {
+                'label': i18nc("@item:inlistbox", "Vivid"),
+                'value': 4
+            },
         ]
 
         textRole: "label"

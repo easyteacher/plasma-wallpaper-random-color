@@ -11,7 +11,7 @@ A wallpaper plugin for KDE Plasma that periodically updates the desktop backgrou
 
 ## Features
 
-- Support Light/Dark/Follow Theme color scheme
+- Support Light/Dark/Follow Theme/Vivid color scheme
 - Automatically select a color scheme based on Night Color active status
 - Copy HEX color code using the desktop context menu
 
