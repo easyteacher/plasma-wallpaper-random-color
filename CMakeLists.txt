@@ -4,7 +4,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 project(plasma-wallpaper-random-color)
-set(PROJECT_VERSION "1.1.0")
+set(PROJECT_VERSION "2.0.0")
 set(PROJECT_VERSION_MAJOR 1)
 
 set(KF6_MIN_VERSION "5.240.0")
