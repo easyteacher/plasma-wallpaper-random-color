@@ -6,10 +6,10 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-import QtQuick 2.0
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick
+import QtQuick.Controls as QQC2
 
-import org.kde.kirigami 2.5 as Kirigami
+import org.kde.kirigami as Kirigami
 
 Kirigami.FormLayout {
     id: root
@@ -28,7 +28,7 @@ Kirigami.FormLayout {
         Kirigami.FormData.label: i18nc("@label:listbox", "Color scheme:")
 
         currentIndex: cfg_ColorScheme
-        enabled: !followNightColorCheckBox.checked
+        enabled: !followNightColorCheckBox.checked || !followNightColorCheckBox.enabled
 
         model: [
             {
@@ -59,7 +59,7 @@ Kirigami.FormLayout {
 
     QQC2.CheckBox {
         id: followNightColorCheckBox
-        enabled: nightColorLoader.item
+        enabled: nightColorLoader.status === Loader.Ready
         text: i18nc("@option:check", "Automatically select a color scheme based on Night Color active status")
 
         Loader {

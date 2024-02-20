@@ -4,8 +4,11 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-import org.kde.plasma.private.nightcolorcontrol 1.0
+import QtQml
 
-Monitor {
-    id: monitor
+import org.kde.plasma.private.brightnesscontrolplugin
+
+QtObject {
+    readonly property NightColorInhibitor inhibitor: NightColorInhibitor { }
+    readonly property NightColorMonitor monitor: NightColorMonitor { }
 }

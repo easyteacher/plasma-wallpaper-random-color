@@ -4,12 +4,11 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-import QtQuick 2.0
-import QtQml 2.0
+import QtQuick
 
-import org.kde.kquickcontrolsaddons 2.0 as KQCAddons
+import org.kde.kquickcontrolsaddons as KQCAddons
 
-Item {
+QtObject {
     id: generator
 
     property color currentColor: "black"
@@ -18,13 +17,12 @@ Item {
      * Current color scheme based on the configuration, the system theme or Night Color status.
      */
     readonly property int colorScheme: {
-        if (nightColorLoader.item && wallpaper.configuration.FollowNightColor) {
-            const isNightColorActive = nightColorLoader.item.enabled && nightColorLoader.item.targetTemperature != 6500;
-
-            return isNightColorActive ? 1 : 2;
+        if (nightColorLoader.item?.monitor.running && root.configuration.FollowNightColor) {
+            const nightModeEnabled = nightColorLoader.item.inhibitor.state === 3 && !nightColorLoader.item.monitor.daylight;
+            return nightModeEnabled ? 1 : 2;
         }
 
-        if (wallpaper.configuration.ColorScheme === 3) {
+        if (root.configuration.ColorScheme === 3) {
             const wColor = palette.window;
             // 192 is from kcm_colors
             if (255 * (wColor.r * 11 + wColor.g * 16 + wColor.b * 5) / 32 < 192) {
@@ -34,7 +32,7 @@ Item {
             }
         }
 
-        return wallpaper.configuration.ColorScheme;
+        return root.configuration.ColorScheme;
     }
 
     property QtObject __clipboard: KQCAddons.Clipboard { }
@@ -92,21 +90,17 @@ Item {
         timer.restart()
     }
 
-    SystemPalette {
-        id: palette
+    readonly property SystemPalette palette: SystemPalette {
         colorGroup: SystemPalette.Active
     }
 
     // Night Color Control may be unavailable, so put it in a loader
-    Loader {
-        id: nightColorLoader
+    readonly property Loader nightColorLoader: Loader {
         source: "NightColorControl.qml"
     }
 
-    Timer {
-        id: timer
-
-        interval: wallpaper.configuration.SlideInterval * 1000
+    readonly property Timer timer: Timer {
+        interval: root.configuration.SlideInterval * 1000
         repeat: true
         running: true
         triggeredOnStart: true
@@ -118,4 +112,3 @@ Item {
         timer.restart()
     }
 }
-

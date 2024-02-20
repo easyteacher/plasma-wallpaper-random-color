@@ -1,11 +1,14 @@
-cmake_minimum_required(VERSION 3.0)
+# SPDX-FileCopyrightText: 2022 Fushan Wen <qydwhotmail@gmail.com>
+# SPDX-License-Identifier: BSD-3-Clause
+
+cmake_minimum_required(VERSION 3.5)
 
 project(plasma-wallpaper-random-color)
 set(PROJECT_VERSION "1.1.0")
 set(PROJECT_VERSION_MAJOR 1)
 
-set(KF5_MIN_VERSION "5.66.0")
-set(QT_MIN_VERSION "5.12.0")
+set(KF6_MIN_VERSION "5.240.0")
+set(QT_MIN_VERSION "6.6.0")
 
 ################# Disallow in-source build #################
 if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
@@ -23,20 +26,12 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
-include(ECMQMLModules)
+include(ECMFindQmlModule)
+
+find_package(Plasma 6.0 REQUIRED)
 
 ecm_find_qmlmodule(QtQuick 2.0)
 ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
-
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
-    Declarative
-    Plasma
-)
-
-find_package(Qt5 ${QT_MIN_VERSION} CONFIG REQUIRED COMPONENTS
-    Qml
-    Quick
-)
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
 

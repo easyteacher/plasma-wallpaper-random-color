@@ -5,35 +5,46 @@
     SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-import QtQuick 2.0
+import QtQuick
 
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasmoid
 
-Rectangle {
+WallpaperItem {
     id: root
 
-    color: generator.currentColor
-
-    function action_copy() {
-        generator.copyCurrentColor();
-    }
-
-    function action_next() {
-        generator.restart();
-    }
+    contextualActions: [
+        PlasmaCore.Action {
+            text: i18nc("@action:inmenu copy current color hex code", "Copy Current Color")
+            icon.name: "edit-copy"
+            onTriggered: generator.copyCurrentColor()
+        },
+        PlasmaCore.Action {
+            text: i18nc("@action:inmenu switch to next random color", "Next Random Color")
+            icon.name: "color-fill"
+            onTriggered: generator.restart()
+        }
+    ]
 
     RandomColorGenerator {
         id: generator
     }
 
-    Behavior on color {
-        ColorAnimation {
-            duration: PlasmaCore.Units.longDuration
-        }
-    }
+    Rectangle {
+        anchors.fill: parent
+        color: generator.currentColor
 
-    Component.onCompleted: {
-        wallpaper.setAction("copy", i18nc("@action:inmenu copy current color hex code", "Copy Current Color"), "edit-copy");
-        wallpaper.setAction("next", i18nc("@action:inmenu switch to next random color", "Next Random Color"), "color-fill");
+        Behavior on color {
+            SequentialAnimation {
+                ColorAnimation {
+                    duration: Kirigami.Units.longDuration
+                }
+
+                ScriptAction {
+                    script: root.accentColorChanged()
+                }
+            }
+        }
     }
 }
